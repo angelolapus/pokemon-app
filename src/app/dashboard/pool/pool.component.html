@@ -1,4 +1,9 @@
 <p>
   pool works!
-  {{pokemonPool | json}}
+  <!-- {{pokemonPool | json}} -->
 </p>
+<mat-selection-list #pokemons [multiple]="false">
+  <mat-list-option *ngFor="let pokemon of pokemonPool" [value]="pokemon">
+    {{pokemon.name}}
+  </mat-list-option>
+</mat-selection-list>

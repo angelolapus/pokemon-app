@@ -5,8 +5,7 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 import { PoolComponent } from './pool/pool.component';
 import { SelectedComponent } from './selected/selected.component';
-import { HttpClientModule } from '@angular/common/http';
-
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -16,7 +15,8 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     CommonModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    MatListModule
   ]
 })
 export class DashboardModule { }
