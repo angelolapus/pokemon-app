@@ -6,6 +6,10 @@ import { DashboardComponent } from './dashboard.component';
 import { PoolComponent } from './pool/pool.component';
 import { SelectedComponent } from './selected/selected.component';
 import { MatListModule } from '@angular/material/list';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -16,7 +20,11 @@ import { MatListModule } from '@angular/material/list';
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    MatListModule
+    MatListModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatInputModule
   ]
 })
 export class DashboardModule { }

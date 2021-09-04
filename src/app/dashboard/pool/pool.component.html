@@ -1,9 +1,27 @@
-<p>
-  pool works!
-  <!-- {{pokemonPool | json}} -->
-</p>
-<mat-selection-list #pokemons [multiple]="false">
-  <mat-list-option *ngFor="let pokemon of pokemonPool" [value]="pokemon">
-    {{pokemon.name}}
-  </mat-list-option>
-</mat-selection-list>
+<mat-form-field appearance="standard">
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Pikachu" #input>
+</mat-form-field>
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort>
+
+    <ng-container matColumnDef="index">
+      <mat-header-cell *matHeaderCellDef> Index </mat-header-cell>
+      <mat-cell *matCellDef="let row; let i = index;">{{i}}</mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> name </th>
+      <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns; let i = index;"></tr>
+
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[10, 20, 30]" aria-label="Select page of pokemons"></mat-paginator>
+</div>
